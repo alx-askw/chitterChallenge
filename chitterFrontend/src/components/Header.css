@@ -1,0 +1,13 @@
+.headerMain {
+    background-color: blue;
+    height: 125px;
+    font-size: 95px;
+    text-align: 25%;
+    color: aliceblue;
+}
+
+.logoImg {
+    width: 150px;
+    height: 100%;
+    float: left;
+}
