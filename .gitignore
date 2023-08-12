@@ -26,4 +26,5 @@ dist-ssr
 
 /chitterFrontend/node_modules
 /chitterBackend/node_modules
+/chitterBackend/developmentFilesNotForShow
 .env
