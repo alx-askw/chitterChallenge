@@ -4,6 +4,8 @@ import cors from 'cors';
 
 
 import { allPeepsRouter } from "./routes/allPeeps.route.js";
+import { logInRouter } from "./routes/Login.js";
+import { postPeepsRouter } from "./routes/postPeep.route.js";
 
 
 const app = express();
@@ -20,7 +22,9 @@ dbConnect().catch(err => console.log(err));
 
 app.use(express.json());
 app.use(cors());
-app.use('/', allPeepsRouter)
+app.use('/', allPeepsRouter);
+app.use('/login', logInRouter);
+app.use('/postPeeps', postPeepsRouter);
 
 const APP = app.listen(PORT, () => {
     console.log(`SERVER ONLINE: localhost:${PORT}`)

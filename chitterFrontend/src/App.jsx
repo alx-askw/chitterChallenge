@@ -9,6 +9,12 @@ import { getPeeps } from './utils/backendAPICalls.util.js';
 function App() {
 
   const [peeps, setPeeps] = useState([]);
+  const [loggedIn, setLogginIn] = useState([false]); //TODO: add login/signup functionality, get question answered about auth server being seperate
+
+  const loginHandle = async ({ email, password }) => {
+    setLogginIn(await loginConfirm({ email, password }))
+  }
+
 
   //todo: make this a bit nicer/professional
   const backendDevLink = 'http://localhost:3000'

@@ -2,9 +2,10 @@ import mongoose from "mongoose";
 
 const peepSchema = new mongoose.Schema({
     userName: { type: String, required: true },
+    name: { type: String, required: true },
     peepDate: {
         type: Date,
-        default: Date.now,
+        default: new Date().toISOString(),
         required: true
     },
     peepContent: { type: String, required: true },
@@ -12,7 +13,7 @@ const peepSchema = new mongoose.Schema({
         userName: { type: String, required: true },
         peepDate: {
             type: Date,
-            default: Date.now,
+            default: new Date().toISOString(),
             required: true
         },
         peepContent: { type: String, required: true },

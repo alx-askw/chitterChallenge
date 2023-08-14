@@ -10,7 +10,7 @@ const Peep = ({ peeps }) => {
     // TODO: VERY IMPORTANT - it might be worth ordering them by date not by order in database - because the order could change?
     peepArray.reverse();
 
-    console.log(peepArray)
+    // console.log(peepArray)
 
     return (
         <div >
@@ -18,7 +18,7 @@ const Peep = ({ peeps }) => {
                 <div key={peepObj._id} className="rounded peepDiv">
                     <div className='peepHead'>
                         <h5 className='peepUserName'>
-                            @{peepObj.userName}
+                            {peepObj.name}@{peepObj.userName}
                         </h5>
                         <h6 className='peepDate'>
                             {peepObj.peepDate}
