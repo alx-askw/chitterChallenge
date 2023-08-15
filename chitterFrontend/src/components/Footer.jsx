@@ -9,7 +9,7 @@ const Footer = () => {
                 &copy; Chitter - Digital Futures - Alex A -
             </h3>
             <a className='imgAnchor' href='https://github.com/alx-askw/chitter-challenge/tree/main' rel="noreferrer" target='_blank'>
-                <img src={gitHubLogo} alt='Link to github page for this project' />
+                <img className='gitHubImg' src={gitHubLogo} alt='Link to github page for this project' />
             </a>
         </div >
     )

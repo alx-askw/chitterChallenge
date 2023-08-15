@@ -12,9 +12,13 @@ const app = express();
 const PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 
+//TODO: replace this with envs | it will make is so much easier - to no test with dev lol
+const chitterDevLink = 'mongodb://127.0.0.1:27017/chitterDev';
+const chitterTestLink = 'mongodb://127.0.0.1:27017/chitterTest'
+
 const dbConnect = async () => {
     console.log('connecting to db');
-    await mongoose.connect('mongodb://127.0.0.1:27017/chitterDev'); //TODO: maybe add timeout stuff here
+    await mongoose.connect(chitterDevLink); //TODO: maybe add timeout stuff here
     console.log('connected to db')
 }
 
