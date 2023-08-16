@@ -22,7 +22,7 @@ router.route('/')
         try {
             const user = await User.findOne({ userEmail }).exec();
             if (user && user.password === password) {
-                res.send('login successful')
+                res.status(200).send({ name: user.name, userName: user.userName, pfpUrl: user.pfpUrl })
                 console.log('user exists')
                 // console.log(user)
             } else {

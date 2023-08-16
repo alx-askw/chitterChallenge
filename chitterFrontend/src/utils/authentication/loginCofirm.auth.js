@@ -11,7 +11,8 @@ export const loginConfirm = async ({ email, password }) => {
     try {
         const logCheck = await axios.post(loggingInRoute, { userEmail: email, password: password });
         console.log("does user exist: ", (logCheck.status === 200))
-        return ([logCheck.status === 200]); //put this in array because default state is in array for some reason
+        console.log(logCheck.data)
+        return ({ loginStatus: [logCheck.status === 200], userInformation: logCheck.data }); //put this in array because default state is in array for some reason
     } catch (e) {
         console.log("does user exist: ", false)
         return false;

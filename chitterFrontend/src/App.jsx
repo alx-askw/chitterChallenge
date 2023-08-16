@@ -21,10 +21,14 @@ function App() {
   //* Adding the or means that logged persists over page refresh :D
   const [loggedIn, setLoggingIn] = useState(localStorage.getItem('isLoggedIn') || [false]); //TODO: add login/signup functionality, get question answered about auth server being seperate
 
+  //todo: store user info in local storage for use in peeps later
   const loginHandle = async ({ email, password }) => {
-    setLoggingIn(await loginConfirm({ email, password }))
+    const loggingInInfo = await loginConfirm({ email, password });
+    setLoggingIn(loggingInInfo.loginStatus)
     console.log("logged in state: ", loggedIn);
-    localStorage.setItem("isLoggedIn", loggedIn)
+    localStorage.setItem("isLoggedIn", loggingInInfo.loginStatus)
+    localStorage.setItem("userInfo", loggingInInfo.userInformation)
+    // console.log(JSON.parse(localStorage.getItem('userInfo')))
   }
 
   const logOutUser = () => {
