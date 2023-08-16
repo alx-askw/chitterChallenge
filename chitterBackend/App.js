@@ -2,10 +2,11 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from 'cors';
 
-
+//* IMPORT OF ALL ROUTES
 import { allPeepsRouter } from "./routes/allPeeps.route.js";
 import { logInRouter } from "./routes/Login.js";
 import { postPeepsRouter } from "./routes/postPeep.route.js";
+import { signingUpRouter } from "./routes/SignUp.route.js";
 
 
 const app = express();
@@ -29,6 +30,7 @@ app.use(cors());
 app.use('/', allPeepsRouter);
 app.use('/login', logInRouter);
 app.use('/postPeeps', postPeepsRouter);
+app.use('/signup', signingUpRouter);
 
 const APP = app.listen(PORT, () => {
     console.log(`SERVER ONLINE: localhost:${PORT}`)

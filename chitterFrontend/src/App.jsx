@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom';
 import './App.css'
 import { getPeeps } from './utils/backendAPICalls.util.js';
-import { loginConfirm } from './components/authentication/loginCofirm.auth';
+import { loginConfirm } from './utils/authentication/loginCofirm.auth';
+import { accountSignUp } from './utils/authentication/signingUpCalls'
 
 
 // * IMPORTS FOR COMPONENTS
@@ -17,7 +18,8 @@ function App() {
 
   const [peeps, setPeeps] = useState([]);
 
-  const [loggedIn, setLoggingIn] = useState([false]); //TODO: add login/signup functionality, get question answered about auth server being seperate
+  //* Adding the or means that logged persists over page refresh :D
+  const [loggedIn, setLoggingIn] = useState(localStorage.getItem('isLoggedIn') || [false]); //TODO: add login/signup functionality, get question answered about auth server being seperate
 
   const loginHandle = async ({ email, password }) => {
     setLoggingIn(await loginConfirm({ email, password }))
@@ -28,6 +30,10 @@ function App() {
   const logOutUser = () => {
     setLoggingIn(false);
     localStorage.removeItem("isLoggedIn")
+  }
+
+  const signUpHandle = async (name, userName, email, password, pfpUrl) => {
+    await accountSignUp(name, userName, email, password, pfpUrl);
   }
 
   //todo: make this a bit nicer/professional
@@ -50,7 +56,7 @@ function App() {
     <>
       <Routes>
         <Route path='/home' element={<AllPeeps peeps={peeps} loggedIn={loggedIn} logOutUser={logOutUser} />} />
-        <Route path='/login' element={<LogInComp loggedIn={loggedIn} loginHandle={loginHandle} logOutUser={logOutUser} />} />
+        <Route path='/login' element={<LogInComp loggedIn={loggedIn} loginHandle={loginHandle} signUpHandle={signUpHandle} logOutUser={logOutUser} />} />
       </Routes>
     </>
   )

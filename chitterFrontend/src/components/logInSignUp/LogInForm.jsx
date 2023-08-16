@@ -9,7 +9,7 @@ const logInForm = ({ loginHandle }) => {
 
     const formSubmit = async (event) => {
         event.preventDefault();
-        console.log("here")
+        console.log("here: inside formSubmit()")
         await loginHandle({ email: emailIn, password: passwordIn })
     }
     //todo: change text to email/password to hide it +validation step 1
@@ -17,7 +17,7 @@ const logInForm = ({ loginHandle }) => {
         <div>
             <form onSubmit={formSubmit}>
                 <input type="text" placeholder='Email' onChange={(event) => emailIn = event.target.value} />
-                <input type="text" placeholder='Email' onChange={(event) => passwordIn = event.target.value} />
+                <input type="text" placeholder='Password' onChange={(event) => passwordIn = event.target.value} />
                 <button type="submit">Login</button>
             </form>
             test1@email.com

@@ -11,19 +11,24 @@ const router = express.Router()
 //* This is really good - related docs and queries - object id and populate
 //https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
 
+//! is logic meant to be in this route file???
+//! Using an else in here, maybe use a ternary clean it all up
+//!remember when deconstructing the body to make sure the keys are the same (userEmail not email)
 router.route('/')
     .post(async (req, res) => {
-        // console.log(req.body)
-        const { email, password } = req.body;
-        console.log(email, " | ", password)
+        console.log(req.body)
+        const { userEmail, password } = req.body;
+        console.log(userEmail, " | ", password)
         try {
-            const user = await User.findOne({ email }).exec();
+            const user = await User.findOne({ userEmail }).exec();
             if (user && user.password === password) {
                 res.send('login successful')
                 console.log('user exists')
+                // console.log(user)
             } else {
                 res.status(404).send('information is incorrect')
                 console.log('failure')
+                // console.log(user)
             }
         } catch (e) {
             console.log(e)
