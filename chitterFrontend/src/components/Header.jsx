@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 
 // TODO: change functionality for login button to depend on the state of logged in
 
-const Header = ({ loggedIn }) => {
+const Header = ({ loggedIn, logOutUser }) => {
     const navigator = useNavigate();
 
     return (
@@ -14,7 +14,7 @@ const Header = ({ loggedIn }) => {
 
             {!loggedIn[0] ?
                 <h5 className='loginText' onClick={() => navigator('/login')}>Login | Signup</h5>
-                : <h5 className='loginText' onClick={() => navigator('/home')}>Logout</h5>
+                : <h5 className='loginText' onClick={() => navigator(logOutUser())}>Logout</h5>
             }
         </div >
 

@@ -20,6 +20,8 @@ const logInForm = ({ loginHandle }) => {
                 <input type="text" placeholder='Email' onChange={(event) => passwordIn = event.target.value} />
                 <button type="submit">Login</button>
             </form>
+            test1@email.com
+            testpassword1
         </div>
     )
 }

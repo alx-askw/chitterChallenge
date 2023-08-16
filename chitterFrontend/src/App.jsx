@@ -21,8 +21,14 @@ function App() {
 
   const loginHandle = async ({ email, password }) => {
     setLoggingIn(await loginConfirm({ email, password }))
+    console.log("logged in state: ", loggedIn);
+    localStorage.setItem("isLoggedIn", loggedIn)
   }
 
+  const logOutUser = () => {
+    setLoggingIn(false);
+    localStorage.removeItem("isLoggedIn")
+  }
 
   //todo: make this a bit nicer/professional
   const backendDevLink = 'http://localhost:3000'
@@ -38,13 +44,13 @@ function App() {
   }
   useEffect(() => {
     getThePeeps();
-    // console.log(loggedIn)
-  }, [])
+    console.log("in use effect: ", loggedIn)
+  }, [loggedIn])
   return (
     <>
       <Routes>
-        <Route path='/home' element={<AllPeeps peeps={peeps} loggedIn={loggedIn} />} />
-        <Route path='/login' element={<LogInComp loggedIn={loggedIn} loginHandle={loginHandle} />} />
+        <Route path='/home' element={<AllPeeps peeps={peeps} loggedIn={loggedIn} logOutUser={logOutUser} />} />
+        <Route path='/login' element={<LogInComp loggedIn={loggedIn} loginHandle={loginHandle} logOutUser={logOutUser} />} />
       </Routes>
     </>
   )

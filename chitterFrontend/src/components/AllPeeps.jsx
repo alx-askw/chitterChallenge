@@ -5,7 +5,7 @@ import Peep from './Peep';
 import './AllPeeps.css'
 
 
-function AllPeeps({ peeps, loggedIn }) {
+function AllPeeps({ peeps, loggedIn, logOutUser }) {
     // let peepArray = [];
     // peeps.forEach(e => {
     //     peepArray.push(e)
@@ -15,7 +15,7 @@ function AllPeeps({ peeps, loggedIn }) {
         <>
             <div className='allPeepStyle'>
 
-                <Header loggedIn={loggedIn}></Header>
+                <Header loggedIn={loggedIn} logOutUser={logOutUser}></Header>
                 {!loggedIn[0] ? <h1>not logged in</h1> : <h1>logged in</h1>}
                 <br></br>
                 <Peep peeps={peeps}></Peep>
