@@ -31,8 +31,6 @@ const SigningUpForm = ({ signUpHandle }) => {
 
                 <button type="submit">Sign Up</button>
             </form>
-            test1@email.com
-            testpassword1
         </div>
     )
 }

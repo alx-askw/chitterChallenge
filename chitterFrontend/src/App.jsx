@@ -28,7 +28,6 @@ function App() {
     console.log("logged in state: ", loggedIn);
     localStorage.setItem("isLoggedIn", loggingInInfo.loginStatus)
     localStorage.setItem("userInfo", loggingInInfo.userInformation)
-    // console.log(JSON.parse(localStorage.getItem('userInfo')))
   }
 
   const logOutUser = () => {
@@ -41,14 +40,12 @@ function App() {
   }
 
   //todo: make this a bit nicer/professional
-  const backendDevLink = 'http://localhost:3000'
+  const backendDevLink = 'http://localhost:3000';
   const getThePeeps = async () => {
     try {
       const getAllThePeeps = await getPeeps(backendDevLink);
       setPeeps(getAllThePeeps.data);
-      // console.log(peeps)
     } catch (e) {
-      console.log(e)
       setPeeps([]);
     }
   }
@@ -56,10 +53,12 @@ function App() {
     getThePeeps();
     console.log("in use effect: ", loggedIn)
   }, [loggedIn])
+
+  //! It's a bit messy to pass down so much info down the routes
   return (
     <>
       <Routes>
-        <Route path='/home' element={<AllPeeps peeps={peeps} loggedIn={loggedIn} logOutUser={logOutUser} />} />
+        <Route path='/home' element={<AllPeeps peeps={peeps} loggedIn={loggedIn} logOutUser={logOutUser} getThePeeps={getThePeeps} />} />
         <Route path='/login' element={<LogInComp loggedIn={loggedIn} loginHandle={loginHandle} signUpHandle={signUpHandle} logOutUser={logOutUser} />} />
       </Routes>
     </>

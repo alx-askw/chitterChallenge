@@ -3,9 +3,10 @@ import Footer from './Footer'
 import PropTypes from 'prop-types';
 import Peep from './Peep';
 import './AllPeeps.css'
+import PostPeepComp from './PostPeepComp';
 
 
-function AllPeeps({ peeps, loggedIn, logOutUser }) {
+function AllPeeps({ peeps, loggedIn, logOutUser, getThePeeps }) {
     // let peepArray = [];
     // peeps.forEach(e => {
     //     peepArray.push(e)
@@ -16,7 +17,7 @@ function AllPeeps({ peeps, loggedIn, logOutUser }) {
             <div className='allPeepStyle'>
 
                 <Header loggedIn={loggedIn} logOutUser={logOutUser}></Header>
-                {!loggedIn[0] ? <h1>not logged in</h1> : <h1>logged in</h1>}
+                {loggedIn[0] ? <PostPeepComp getThePeeps={getThePeeps}></PostPeepComp> : <h1>Log In to Peep</h1>}
                 <br></br>
                 <Peep peeps={peeps}></Peep>
                 <br></br>
