@@ -1,4 +1,5 @@
 import './Peep.css'
+import PeepRepliesComp from './PeepRepliesComp.jsx';
 
 const Peep = ({ peeps }) => {
 
@@ -27,6 +28,7 @@ const Peep = ({ peeps }) => {
                     <p>
                         {peepObj.peepContent}
                     </p>
+                    <PeepRepliesComp peepObj={peepObj} ></PeepRepliesComp>
                 </div>
             ))}
         </div>

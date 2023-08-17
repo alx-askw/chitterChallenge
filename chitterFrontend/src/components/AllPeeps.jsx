@@ -17,7 +17,7 @@ function AllPeeps({ peeps, loggedIn, logOutUser, getThePeeps }) {
             <div className='allPeepStyle'>
 
                 <Header loggedIn={loggedIn} logOutUser={logOutUser}></Header>
-                {loggedIn[0] ? <PostPeepComp getThePeeps={getThePeeps}></PostPeepComp> : <h1>Log In to Peep</h1>}
+                {loggedIn[0] ? <PostPeepComp getThePeeps={getThePeeps}></PostPeepComp> : <h1 className='notLogged'>Log In to Peep</h1>}
                 <br></br>
                 <Peep peeps={peeps}></Peep>
                 <br></br>

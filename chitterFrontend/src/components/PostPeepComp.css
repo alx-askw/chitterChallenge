@@ -1,0 +1,21 @@
+.formWrapper {
+    max-width: 450px;
+    max-height: 300;
+    margin: 10px auto 1px auto;
+    text-align: center;
+}
+
+.signHeader {
+    border: 3px solid darkslategray;
+    border-radius: 45px;
+    padding: 10px;
+}
+
+.formButton {}
+
+.newPeepWrap {
+    border: 3px solid darkslategrey;
+    border-top: 0;
+    max-width: 150px;
+    border-radius: -2px;
+}

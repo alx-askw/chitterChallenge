@@ -24,15 +24,17 @@ function App() {
   //todo: store user info in local storage for use in peeps later
   const loginHandle = async ({ email, password }) => {
     const loggingInInfo = await loginConfirm({ email, password });
-    setLoggingIn(loggingInInfo.loginStatus)
+    setLoggingIn(loggingInInfo.loginStatus || false)
     console.log("logged in state: ", loggedIn);
     localStorage.setItem("isLoggedIn", loggingInInfo.loginStatus)
-    localStorage.setItem("userInfo", loggingInInfo.userInformation)
   }
 
   const logOutUser = () => {
     setLoggingIn(false);
     localStorage.removeItem("isLoggedIn")
+    localStorage.removeItem("userRealName")
+    localStorage.removeItem("userName")
+
   }
 
   const signUpHandle = async (name, userName, email, password, pfpUrl) => {

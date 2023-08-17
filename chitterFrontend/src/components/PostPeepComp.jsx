@@ -6,6 +6,7 @@
 
 import { useState } from "react";
 import { postingPeep } from "../utils/backendAPICalls.util.js";
+import './PostPeepComp.css'
 
 const PostPeepComp = ({ getThePeeps }) => {
 
@@ -20,7 +21,7 @@ const PostPeepComp = ({ getThePeeps }) => {
     const peepFormSubmit = async (event) => {
         event.preventDefault();
         await postingPeep(localStorage.getItem('userRealName'), localStorage.getItem('userName'), peepContent)
-        getThePeeps();
+        getThePeeps(); //to reload page on submit
         setFormHidden('hidden');
 
     }
@@ -28,11 +29,13 @@ const PostPeepComp = ({ getThePeeps }) => {
     //TODO: when a user submits the peep, clear the form input field
 
     return (
-        <div>
-            <h1>Post Peep</h1>
-            <button onClick={toggleForm}>New Peep</button>
+        <div className="formWrapper">
+            <h2 className="signHeader">Signed in as: @{localStorage.getItem('userName')}</h2>
+            <h3>Post Peep</h3>
+            <button className="formButton" onClick={toggleForm}>New Peep</button>
             <form id='peepForm' style={{ visibility: formHidden }} onSubmit={peepFormSubmit}>
                 <input type="text" placeholder="Peep..." onChange={(event) => peepContent = event.target.value}></input>
+                <br></br>
                 <button type='submit'> -&gt; Post Peep &lt;-</button>
             </form>
         </div >
