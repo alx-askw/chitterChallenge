@@ -1,7 +1,7 @@
 import './Peep.css'
 import PeepRepliesComp from './PeepRepliesComp.jsx';
 
-const Peep = ({ peeps }) => {
+const Peep = ({ peeps, getThePeeps, loggedIn }) => {
 
     let peepArray = [];
     peeps.forEach(e => {
@@ -28,7 +28,7 @@ const Peep = ({ peeps }) => {
                     <p>
                         {peepObj.peepContent}
                     </p>
-                    <PeepRepliesComp peepObj={peepObj} ></PeepRepliesComp>
+                    {<PeepRepliesComp peepObj={peepObj} getThePeeps={getThePeeps} loggedIn={loggedIn}></PeepRepliesComp>}
                 </div>
             ))}
         </div>

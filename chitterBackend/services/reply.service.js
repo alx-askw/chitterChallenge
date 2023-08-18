@@ -6,7 +6,7 @@
 
 import Peep from "../models/peep.model.js"
 
-export const replyToPeep = async (peepId, name, userName, peepContent) => {
+export const replyToPeep = async (peepId, userName, name, peepContent) => {
 
     try {
         const parentPeep = await Peep.findById(peepId)

@@ -12,6 +12,6 @@ export const postPeeps = async ({ userName, name, peepContent }) => {
             peepContent
         });
     } catch (e) {
-        console.log(e)
+        throw e
     }
 }

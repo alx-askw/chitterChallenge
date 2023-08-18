@@ -2,7 +2,14 @@
 //https://legacy.reactjs.org/docs/faq-functions.html
 // https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
 
+import { useNavigate } from "react-router-dom";
+
+
+
 const logInForm = ({ loginHandle }) => {
+
+    //TODO: redirect back to peeps page once logged in 
+    const navigate = useNavigate();
 
     let emailIn = '';
     let passwordIn = '';
@@ -18,11 +25,11 @@ const logInForm = ({ loginHandle }) => {
             <form onSubmit={formSubmit}>
                 <input type="text" placeholder='Email' onChange={(event) => emailIn = event.target.value} />
                 <input type="text" placeholder='Password' onChange={(event) => passwordIn = event.target.value} />
-                <button type="submit">Login</button>
+                <button type="submit" >Login</button>
             </form>
             test1@email.com
             testpassword1
-        </div>
+        </div >
     )
 }
 

@@ -15,7 +15,7 @@ const testArray = testData.data;
 
 chai.use(chaiHttp);
 
-describe('route testing', () => {
+describe('get route testing', () => {
     const testServer = chai.request(APP).keepOpen();
 
     beforeEach(async () => {
@@ -34,13 +34,13 @@ describe('route testing', () => {
         }
     })
 
+
     describe('/ - getting all Peeps', async () => {
-        it('should ', async () => {
+        it('should get all peeps', async () => {
             const result = await testServer.get('/').send();
 
             expect(result).to.have.status(200);
             expect(result.body).to.be.an('array');
-            console.log(result.body)
             expect(result.body.length).to.equal(testArray.length);
         })
 
