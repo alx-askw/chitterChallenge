@@ -7,12 +7,13 @@ import APP from '../App.js';
 
 // main source of learning for this is from:
 //https://github.com/digital-futures-academy/SE-2306-A-Demos/blob/main/FullStackEngineering/todoBackEnd/test/todo.js
+//https://mongoosejs.com/docs/api/model.html#Model.findOne()
+
 
 import testData from './sampleData/testData.js';
 import testUsers from './sampleData/testUsers.js';
 import Peep from '../models/peep.model.js';
 import User from '../models/user.model.js';
-
 
 const testArray = testData.data;
 const userTestArray = testUsers.data;
@@ -98,10 +99,9 @@ describe('get route testing', () => {
             expect(await User.countDocuments({})).to.be.equal(userTestArray.length + 1);
         })
 
-        //! SORT THIS TEST OUT
-        //TODO: this test, whilst passing, spews out the mongo validation error I'm trying to test - even in a try/catch
+
         it('should not add new user if information is incorrect', async () => {
-            const result = await testServer.post('/signup').send({
+            await testServer.post('/signup').send({
                 "name": "signUpTest",
                 "userName": "signUpTestUser",
                 "password": "password7"
@@ -162,6 +162,43 @@ describe('get route testing', () => {
         })
 
     })
+
+    describe('/reply - reply to peeps', () => {
+        it('should ', async () => {
+            const testID = await Peep.findOne({ userName: 'testUser1' }).exec()
+            const result = await testServer.post('/reply').send({
+                "peepId": testID._id,
+                "userName": "testUserName2",
+                "name": "testName2",
+                "peepContent": "test string 2"
+            });
+
+            const testIDUpdated = await Peep.findOne({ userName: 'testUser1' }).exec();
+            expect(result.status).to.equal(200);
+            expect(result.text).to.equal('Reply added successfully')
+            expect(await testIDUpdated.peepReplies.length).to.equal(1)
+
+
+
+        })
+
+        it('should return 500 if incorrect information is passed', async () => {
+            const testID = await Peep.findOne({ userName: 'testUser1' }).exec()
+            const result = await testServer.post('/reply').send({
+                "peepId": testID._id,
+                "name": "testName2",
+                "peepContent": "test string 2"
+            });
+
+            const testIDUpdated = await Peep.findOne({ userName: 'testUser1' }).exec();
+            expect(result.status).to.equal(500);
+            expect(result.text).to.equal('error')
+            expect(await testIDUpdated.peepReplies.length).to.equal(0)
+        })
+
+
+    })
+
 
 
 })
