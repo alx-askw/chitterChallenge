@@ -13,6 +13,9 @@ export const signUpUser = async (name, userName, userEmail, password, pfpUrl) =>
             pfpUrl
         });
     } catch (e) {
-        console.log(e)
+        //!This was causing trouble when testing this - do something better here
+        // console.log(e)
+        //*maybe
+        throw e;
     }
 }

@@ -14,7 +14,6 @@ export const SignUpControl = async (name, userName, userEmail, password, pfpUrl)
             return { status: 200, message: 'sign up successful' };
         }
     } catch (e) {
-        console.log(e)
         return { status: 500, message: 'error' };
     }
 }
