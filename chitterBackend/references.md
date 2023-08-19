@@ -1,7 +1,7 @@
 # References: Backend
 -------------------------
 
-###     SE-2306-A-Demos/FullStackEngineering/
+### SE-2306-A-Demos/FullStackEngineering/
 - DF demo files on fullstack - specifically the logging in and auth
 - https://github.com/digital-futures-academy/SE-2306-A-Demos/tree/main/FullStackEngineering
 - Accessed 14 Aug 2023
@@ -32,3 +32,17 @@
 - https://mongoosejs.com/docs/api/model.html#Model.create()
 - Accessed 14 Aug 2023
 
+### Nodemailer
+- I used their example code to be able to implement the email user when tagged
+- https://nodemailer.com/about/
+- Accessed 19 Aug 2023
+
+### Testing SMTP
+- This is how I got the email service to work without introducing GMAIL or some kind SMTP
+- https://nodemailer.com/smtp/testing/
+- Accessed 19 Aug 2023
+
+### Model.findOne()
+-mongoose find one method
+-https://mongoosejs.com/docs/api/model.html#Model.findOne()
+-Accessed 19 Aug 2023

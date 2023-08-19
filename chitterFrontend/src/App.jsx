@@ -60,7 +60,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/home' element={<AllPeeps peeps={peeps} loggedIn={loggedIn} logOutUser={logOutUser} getThePeeps={getThePeeps} />} />
+        <Route path='/home' element={peeps.length > 0 ? <AllPeeps peeps={peeps} loggedIn={loggedIn} logOutUser={logOutUser} getThePeeps={getThePeeps} /> : <p>Loading Peeps...</p>} />
         <Route path='/login' element={<LogInComp loggedIn={loggedIn} loginHandle={loginHandle} signUpHandle={signUpHandle} logOutUser={logOutUser} />} />
       </Routes>
     </>

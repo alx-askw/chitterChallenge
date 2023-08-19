@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.route('/').post(async (req, res) => {
     const { peepId, name, userName, peepContent } = req.body;
-    emailTaggedUser(peepContent); // for other story
+    emailTaggedUser(userName, peepContent); // for other story
     const replyingToPeep = await replyControl(peepId, userName, name, peepContent);
     res.status(replyingToPeep.status).send(replyingToPeep.message);
 });

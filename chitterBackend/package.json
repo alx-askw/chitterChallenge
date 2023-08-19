@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "mocha",
-    "dev": "nodemon App.js"
+    "dev": "nodemon App.js",
+    "coverage": "c8 mocha --exit"
   },
   "author": "Alex A",
   "license": "ISC",
@@ -17,6 +18,10 @@
     "express": "^4.18.2",
     "express-validator": "^7.0.1",
     "mocha": "^10.2.0",
-    "mongoose": "^7.4.2"
+    "mongoose": "^7.4.2",
+    "nodemailer": "^6.9.4"
+  },
+  "devDependencies": {
+    "c8": "^8.0.1"
   }
 }

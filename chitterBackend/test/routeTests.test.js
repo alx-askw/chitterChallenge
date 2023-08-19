@@ -9,6 +9,13 @@ import APP from '../App.js';
 //https://github.com/digital-futures-academy/SE-2306-A-Demos/blob/main/FullStackEngineering/todoBackEnd/test/todo.js
 //https://mongoosejs.com/docs/api/model.html#Model.findOne()
 
+//* you can run 'npm run coverage' to get the code coverage
+//* I am happy with the code coverage as most of the untested lines are catch blocks
+//* https://www.npmjs.com/package/c8
+//* https://stackoverflow.com/questions/50459872/no-coverage-nyc-mocha
+//* https://www.testim.io/blog/mocha-code-coverage-how-to-use-instanbul-to-get-going/
+
+
 
 import testData from './sampleData/testData.js';
 import testUsers from './sampleData/testUsers.js';
@@ -41,6 +48,7 @@ describe('get route testing', () => {
             console.log('failure populating db')
         }
     })
+
 
 
     //* GET PEEPS ROUTE
