@@ -108,6 +108,9 @@ Submission Notes
 
 - The Peeps, as well as the login/sign up page have some styling issues, with the latter looking nothing like its wireframe, given more time these would have been improved, and they will be.
 
+- NOTE TO SELF: You didn't consider case sensitivity for usernames or emails, could you have '@test' and '@Test' - test this later. However, technically if you try to sign up with two usernames of the same case it will not allow it. Technically this means that the usernames and emails are unique but go through an compare.
+    - https://stackoverflow.com/questions/7101703/how-do-i-make-case-insensitive-queries-on-mongodb
+    - https://stackoverflow.com/questions/71573222/how-to-make-mongoose-query-case-insensitive
 
 
 
