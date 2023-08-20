@@ -2,6 +2,8 @@ import Footer from "./Footer";
 import Header from "./Header";
 import LogInForm from "./logInSignUp/LogInForm";
 import SigningUpForm from "./logInSignUp/signingUpForm";
+import PropTypes from 'prop-types';
+
 
 
 const LogInComp = ({ loggedIn, loginHandle, logOutUser, signUpHandle }) => {
@@ -15,5 +17,12 @@ const LogInComp = ({ loggedIn, loginHandle, logOutUser, signUpHandle }) => {
     )
 }
 
+LogInComp.propTypes = {
+
+    // loggedIn: PropTypes.bool.isRequired,
+    logOutUser: PropTypes.func.isRequired,
+    signUpHandle: PropTypes.func.isRequired,
+    loginHandle: PropTypes.func.isRequired
+}
 export default LogInComp;
 

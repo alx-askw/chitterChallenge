@@ -1,5 +1,7 @@
 import './Peep.css'
 import PeepRepliesComp from './PeepRepliesComp.jsx';
+import PropTypes from 'prop-types';
+
 
 const Peep = ({ peeps, getThePeeps, loggedIn }) => {
 
@@ -33,6 +35,18 @@ const Peep = ({ peeps, getThePeeps, loggedIn }) => {
             ))}
         </div>
     )
+}
+
+Peep.propTypes = {
+    peeps: PropTypes.arrayOf(
+        PropTypes.shape({
+            userName: PropTypes.string.isRequired,
+            peepDate: PropTypes.string.isRequired,
+            peepContent: PropTypes.string.isRequired,
+            //TODO: Add peep replies here when you get there
+        })),
+    // loggedIn: PropTypes.string.isRequired, //im passing down the index of the above array
+    getThePeeps: PropTypes.func.isRequired
 }
 
 export default Peep

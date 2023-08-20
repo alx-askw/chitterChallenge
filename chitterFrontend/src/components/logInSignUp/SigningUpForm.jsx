@@ -1,4 +1,6 @@
 
+import PropTypes from 'prop-types';
+
 const SigningUpForm = ({ signUpHandle }) => {
 
     //todo: added validation so no blank fields are sent
@@ -14,8 +16,9 @@ const SigningUpForm = ({ signUpHandle }) => {
 
     const formSubmit = async (event) => {
         event.preventDefault();
-        console.log("inside formSubmit in signup form: ", nameIn, userNameIn, userEmailIn, passwordIn, pfpUrlIn)
         await signUpHandle(nameIn, userNameIn, userEmailIn, passwordIn, pfpUrlIn)
+        console.log(signUpHandle)
+
     }
 
     return (
@@ -35,4 +38,7 @@ const SigningUpForm = ({ signUpHandle }) => {
     )
 }
 
+SigningUpForm.propTypes = {
+    signUpHandle: PropTypes.func.isRequired
+}
 export default SigningUpForm

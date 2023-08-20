@@ -7,12 +7,12 @@ export const postPeepsControl = async (req, res) => {
         const { userName, name, peepContent } = req.body;
         await postPeeps({ userName, name, peepContent });
         res.status(200).send('peep added successfully')
+        emailTaggedUser(userName, peepContent);
     } catch (e) {
         res.status(404).send('adding peep failed')
     }
     try {
         const { userName, peepContent } = req.body;
-        emailTaggedUser(userName, peepContent);
     } catch (e) {
         throw (e)
     }

@@ -7,6 +7,8 @@
 import { useState } from "react";
 import { postingPeep } from "../utils/backendAPICalls.util.js";
 import './PostPeepComp.css'
+import PropTypes from 'prop-types';
+
 
 const PostPeepComp = ({ getThePeeps }) => {
 
@@ -40,6 +42,10 @@ const PostPeepComp = ({ getThePeeps }) => {
             </form>
         </div >
     )
+}
+
+PostPeepComp.propTypes = {
+    getThePeeps: PropTypes.func.isRequired
 }
 
 export default PostPeepComp

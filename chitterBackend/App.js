@@ -14,7 +14,7 @@ const app = express();
 const PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 
-//TODO: replace this with envs | it will make is so much easier - to no test with dev lol
+//TODO: replace this with envs | it will make is so much easier - to not test with dev lol
 const chitterDevLink = 'mongodb://127.0.0.1:27017/chitterDev';
 const chitterTestLink = 'mongodb://127.0.0.1:27017/chitterTest'
 

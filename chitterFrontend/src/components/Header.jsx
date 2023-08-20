@@ -1,6 +1,7 @@
 import logo from '../assets/chitter.png'
 import './Header.css'
 import { useNavigate } from 'react-router';
+import PropTypes from 'prop-types';
 
 // TODO: change functionality for login button to depend on the state of logged in
 
@@ -19,6 +20,11 @@ const Header = ({ loggedIn, logOutUser }) => {
         </div >
 
     )
+}
+
+Header.ropTypes = {
+    loggedIn: PropTypes.string.isRequired,
+    logOutUser: PropTypes.func.isRequired
 }
 
 export default Header

@@ -25,7 +25,7 @@ const logInForm = ({ loginHandle }) => {
             <form onSubmit={formSubmit}>
                 <input type="text" placeholder='Email' onChange={(event) => emailIn = event.target.value} />
                 <input type="text" placeholder='Password' onChange={(event) => passwordIn = event.target.value} />
-                <button type="submit" >Login</button>
+                {!localStorage.getItem('isLoggedIn') && <button type="submit" >Login</button>} {/* Stop any issues if user can press login when they're logged in */}
             </form>
             test1@email.com
             testpassword1

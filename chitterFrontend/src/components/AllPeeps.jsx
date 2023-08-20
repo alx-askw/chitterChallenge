@@ -27,13 +27,20 @@ function AllPeeps({ peeps, loggedIn, logOutUser, getThePeeps }) {
     )
 }
 
-// AllPeeps.propTypes = {
-//     peeps: PropTypes.shape({
-//         userName: PropTypes.string.isRequired,
-//         peepDate: PropTypes.string.isRequired,
-//         peepContent: PropTypes.string.isRequired,
-//         //TODO: Add peep replies here when you get there
-//     })
-// }
+AllPeeps.propTypes = {
+    peeps: PropTypes.arrayOf(
+        PropTypes.shape({
+            userName: PropTypes.string.isRequired,
+            peepDate: PropTypes.string.isRequired,
+            peepContent: PropTypes.string.isRequired,
+            //TODO: Add peep replies here when you get there
+        })),
+    // loggedIn: PropTypes.arrayOf(
+    //     PropTypes.bool.isRequired
+    // ),
+    // loggedIn: PropTypes.bool.isRequired,
+    logOutUser: PropTypes.func.isRequired,
+    getThePeeps: PropTypes.func.isRequired
+}
 
 export default AllPeeps

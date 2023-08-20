@@ -19,7 +19,6 @@ export const accountSignUp = async (name, userName, email, password, pfpUrl) => 
         });
         return signUpAttempt.status;
     } catch (e) {
-        console.log(e);
         return 'error with sign up';
     }
 

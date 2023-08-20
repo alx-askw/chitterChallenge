@@ -10,7 +10,7 @@ export const emailTaggedUser = async (userName, peepContent) => {
         validUser && taggedUsers.push(validUser.userEmail)
     }
 
-    if (taggedUsers > 0) {
+    if (taggedUsers.length > 0) {
         for (const userEmail of taggedUsers) {
             try {
                 await tagEmailService(userEmail, userName, peepContent)
