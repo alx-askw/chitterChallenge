@@ -61,8 +61,8 @@ function App() {
     <>
       <Routes>
         {/* <Route path='/home' element={peeps.length > 0 ? <AllPeeps peeps={peeps} loggedIn={loggedIn} logOutUser={logOutUser} getThePeeps={getThePeeps} /> : <p>Loading Peeps...</p>} /> */}
+        <Route path='/' element={<h1>Add /home to the end of your URL!</h1>} />
         <Route path='/home' element={<AllPeeps peeps={peeps} loggedIn={loggedIn} logOutUser={logOutUser} getThePeeps={getThePeeps} />} />
-
         <Route path='/login' element={<LogInComp loggedIn={loggedIn} loginHandle={loginHandle} signUpHandle={signUpHandle} logOutUser={logOutUser} />} />
       </Routes>
     </>
