@@ -31,6 +31,8 @@ Submission Notes
     - for running the frontend:
         - npm run dev
     
+    -*IMPORTANT* PLEASE NAVIGATE TO 'http://127.0.0.1:5173/home' AS THAT'S THE ROUTE FOR THE MAIN ALL PEEPS PAGE - IF YOU ARE SEEING JUST A WHITE SCREEN | MAKE SURE YOU ARE ON THE '/home' ROUTE.
+    
     - for running the tests 
         - npm run test (this is without coverage)
         - npm run coverage (recommended - provides code coverage)
@@ -105,6 +107,8 @@ Submission Notes
 - The sign up and log in page don't display anything on success or failure of the respective actions
 
 - The Peeps, as well as the login/sign up page have some styling issues, with the latter looking nothing like its wireframe, given more time these would have been improved, and they will be.
+
+
 
 
 Design Process/Dev Log 

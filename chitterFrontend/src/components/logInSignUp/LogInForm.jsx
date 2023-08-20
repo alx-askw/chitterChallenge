@@ -28,8 +28,6 @@ const logInForm = ({ loginHandle }) => {
                 {/* {!localStorage.getItem('isLoggedIn') || (localStorage.getItem('isLoggedIn') == 'false' || undefined) && <button type="submit" >Login</button>} Stop any issues if user can press login when they're logged in */}
                 <button type="submit" >Login</button>
             </form>
-            test1@email.com
-            testpassword1
         </div >
     )
 }
