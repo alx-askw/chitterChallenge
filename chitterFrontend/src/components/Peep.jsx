@@ -21,7 +21,7 @@ const Peep = ({ peeps, getThePeeps, loggedIn }) => {
                 <div key={peepObj._id} className="rounded peepDiv">
                     <div className='peepHead'>
                         <h5 className='peepUserName'>
-                            {peepObj.userName}@{peepObj.name}
+                            {peepObj.name}@{peepObj.userName}
                         </h5>
                         <h6 className='peepDate'>
                             {peepObj.peepDate}

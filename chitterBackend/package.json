@@ -7,7 +7,8 @@
   "scripts": {
     "test": "mocha",
     "dev": "nodemon App.js",
-    "coverage": "c8 mocha --exit"
+    "coverage": "c8 mocha --exit",
+    "populate": "node populateForTestingScript.js"
   },
   "author": "Alex A",
   "license": "ISC",

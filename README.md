@@ -7,13 +7,56 @@ Submission Notes
 **Installation and running:**
 - Backend
     - cd .\chitterBackend\
+
     - run npm i 
+
+    - Before running the server, you can run 'npm run populate' - this will populate the database with some example users and peeps
+
     - for running the server:
         - npm run dev
-    - for running the tests
+
+    - for running the tests (make sure you have stopped the dev server first)
         - npm run test (this is without coverage)
         - npm run coverage (recommended - provides code coverage)
-        
+
+    - Note: I didn't have time to set up envs - please check inside the app.js that your local mongo server is running on the same address as line 18;
+
+    - Note: The testing requires the database to be in a known state and will delete the contents of both database's - whilst testing I had two collections but for just having a look, the contents changing should be fine - you can always run 'npm run populate' to get those example peeps back
+
+- Frontend
+    - cd .\chitterFrontend\
+
+    - run npm i
+
+    - for running the frontend:
+        - npm run dev
+    
+    - for running the tests 
+        - npm run test (this is without coverage)
+        - npm run coverage (recommended - provides code coverage)
+        - NOTE: There is either on a few or no tests for the frontend - explained further down
+    - *IMPORTANT*: THERE IS A KIND OF MAJOR BUG WITH THE LOGIN FUNCTIONALITY. 
+        - When you got to login - if you input wrong information and refresh the page, it will log in you in as no one which will cause problems - I know why the issue is occurring but I have ran out of time to figure out a solution. 
+        - If you are on the main page and it says logged in as then a blank space, please press logout and sign in with a valid account.
+
+- If you ran the populate command in the backend, then there are a few account you can sign us, here are a few of them:
+    - 'ScrabbleMan1000'
+        - scrabb1000@email.com
+        - password1
+    
+    - 'scrabbleMan1001'
+        - scrabb1001@email.com
+        - password2
+    
+    - 'DFAirlines'
+        - dfair@email.com
+        - password3
+
+    - 'DFBank'
+        - dfbank@email.com
+        - password4
+    
+
 **This submission implements both the standard and extended criteria:**
 - you can view all peeps on /home
  
@@ -46,6 +89,7 @@ Submission Notes
     - it works by searching for words with an @ prefix and using that to find the emails of those users, thus it will only send emails to users who exist
     - *IMPORTANT*: I used an npm package called 'nodemailer' and they require you create a mail transport, I didn't have the time to set up a gmail SMTP, so I used the built in test account. 
     - To view the email to a tagged user, if you post a peep, @ing a valid user, check the console of the express server for a link which will take you to a testing email site with the email that the user would receive if gmail was set up.
+    - The populate script doesn't show the tagging functionality - you will have to start tagging valid users yourself to see it  
 
 
 **Despite having implemented all the criteria - I consider this to be a partial completion:**
@@ -54,22 +98,48 @@ Submission Notes
 
 - The passwords of each user are store in plain text - a big no no - but I found it easier for development, if I could see all the information of each of my test users - given more time I would have used bcrypt to encrypt each users passwords
 
-- I forgot to finish the prop type validation in react, though a lost of the react components have it. Again, given more time I would have gone through everything react component and implemented the PropType validation 
+- I ran out of time to finish the prop type validation in react, though a lot of the react components have it. Again, given more time I would have gone through everything react component and implemented the PropType validation 
 
 - Testing the front end is something that I find very confusing to implement as well as very time consuming, and I simply ran out of time to test it as much as I would like - this is something I will definitely get to grips with post academy
 
+- The sign up and log in page don't display anything on success or failure of the respective actions
+
+- The Peeps, as well as the login/sign up page have some styling issues, with the latter looking nothing like its wireframe, given more time these would have been improved, and they will be.
 
 
+Design Process/Dev Log 
+-----------------------
+
+Firstly, in each of the folders in this mono-repo, there is a references mark down file for both front and backend. This is to keep the relevant information in each folder, and to make it easier to see where the sources I found were used. The frontend references file is much bigger than the backend. 
+
+There is also a lot of links within the code itself which I used a sources of information, they should be in the references but if not, they should be referred to in the code.
+
+I started Off with a Miro board where I set up a Kanban board for my tasks as well as creating a layout diagram with each segment dedicated to one of user stories. This is pictured below:
+
+![image](./docs/chitterLayout.PNG)
+
+My plan was to make two pages, one of viewing peeps and another for logging in a sign up, so I created some wireframes in Miro to refer to when creating my front end. Below you will find the wireframes for the all peeps page as well as the login/sign up page (one image is the normal and the other is when incorrect information was submitted): 
+
+![image](./docs/chitterWF1.PNG)
+
+![image](./docs/chitterWF2.PNG)
+
+![image](./docs/chitterWF3.PNG)
+
+Alongside the front end, I also designed the backend, with its routes and services and create a quick mock up of how the system should look (after getting some guidance from Ed (you?)) Below is the design:
+
+![image](./docs/structure.PNG)
+
+I also designed a flow chart for how I expected my sign up system to work, with validation.
+
+![image](/docs/signUp.PNG)
 
 
+From here on in, it was writing code, some tests, and using the Kanban board to check progress and break tasks down into smaller parts.
 
+I did have the foresight to add an array to my Peeps schema at beginning of the project and it paid off by using push with mongoose. I also wanted to have optional profile pictures by using the html img attribute but never got round to it, my users schema reflects this early plan but having an optional field for profile picture URLS.
 
-
-
-
-
-
-
+I also wanted to modals but there were scrapped due to time constraints.
 
 Chitter Requirement Spec
 ------------------------

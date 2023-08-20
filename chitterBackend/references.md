@@ -46,3 +46,28 @@
 -mongoose find one method
 -https://mongoosejs.com/docs/api/model.html#Model.findOne()
 -Accessed 19 Aug 2023
+
+### Populate 
+- On how to populate mongo collections
+- https://mongoosejs.com/docs/populate.html
+- Accessed between 11 - 20 Aug 2023
+
+### Express Tutorial Part 3: Using a Database (with Mongoose)
+- Refresher on how to talk to mongo database from within express
+- https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
+- Accessed between 11 - 20 Aug 2023
+
+### Query.prototype.exec()
+- How exec is used to execute mongoose queries
+- https://mongoosejs.com/docs/api/query.html#Query.prototype.exec()
+- Accessed between 11 - 20 Aug 2023
+
+### MongooseArray.prototype.push()
+- How I managed replies by using an array in the schema
+- https://mongoosejs.com/docs/5.x/docs/api/array.html#mongoosearray_MongooseArray-push
+- Accessed between 11 - 20 Aug 2023
+
+### Chai BDD
+- Used in backend testing
+- https://www.chaijs.com/api/bdd/#method_keys
+- Accessed between 11 - 20 Aug 2023
