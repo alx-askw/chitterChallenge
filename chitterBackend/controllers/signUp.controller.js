@@ -9,7 +9,7 @@ import User from '../models/user.model.js'
 export const SignUpControl = async (name, userName, userEmail, password, pfpUrl) => {
 
     try {
-        const userNameValid = await User.findOne({ userName: {} }).exec();
+        const userNameValid = await User.findOne({ userName }).exec();
         const emailValid = await User.findOne({ userEmail }).exec();
         if (userNameValid || emailValid) {
             return { status: 500, message: 'username or email in use' };

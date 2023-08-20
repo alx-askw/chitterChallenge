@@ -92,6 +92,11 @@ Submission Notes
     - *IMPORTANT*: I used an npm package called 'nodemailer' and they require you create a mail transport, I didn't have the time to set up a gmail SMTP, so I used the built in test account. 
     - To view the email to a tagged user, if you post a peep, @ing a valid user, check the console of the express server for a link which will take you to a testing email site with the email that the user would receive if gmail was set up.
     - The populate script doesn't show the tagging functionality - you will have to start tagging valid users yourself to see it  
+    - It will look like this:
+![img](./docs/emailTag1.PNG)
+![img](./docs/emailTag2.PNG)
+![img](./docs/emailTag3.PNG)
+    
 
 
 **Despite having implemented all the criteria - I consider this to be a partial completion:**
